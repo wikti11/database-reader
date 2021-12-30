@@ -1,11 +1,14 @@
 package com.example.Plabs_Proj02.entities;
 
 import com.example.Plabs_Proj02.entities.Driver;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "refResultId", scope = Result.class)
 @Table(name = "Result")
 public class Result {
 

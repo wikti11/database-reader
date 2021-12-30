@@ -1,11 +1,14 @@
 package com.example.Plabs_Proj02.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.joda.time.DateTime;
 import com.example.Plabs_Proj02.entities.Team;
 
 import javax.persistence.*;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "refTeamPrincipalId", scope = TeamPrincipal.class)
 @Table(name = "Team_principal")
 public class TeamPrincipal {
 

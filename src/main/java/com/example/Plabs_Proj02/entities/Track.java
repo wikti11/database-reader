@@ -1,6 +1,8 @@
 package com.example.Plabs_Proj02.entities;
 
 import com.example.Plabs_Proj02.entities.Result;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
@@ -8,6 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "refTrackId", scope = Track.class)
 @Table(name = "Track")
 public class Track {
 

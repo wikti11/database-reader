@@ -1,5 +1,7 @@
 package com.example.Plabs_Proj02.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
@@ -7,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "refDriverId", scope = Driver.class)
 @Table(name = "Driver")
 public class Driver {
 

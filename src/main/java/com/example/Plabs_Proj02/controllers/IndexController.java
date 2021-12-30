@@ -44,18 +44,18 @@ public class IndexController {
         Driver giovinazzi = new Driver("Antonio","Giovinazzi",99,28,"Italian",dateTime);
         Driver tsunoda = new Driver("Yuki","Tsunoda",22,21,"Japanese",dateTime);
         Driver alonso = new Driver("Fernando","Alonso",14,40,"Spanish",dateTime);
-//
-//        giovinazzi.getTeam().add(alfaRomeo);
-//        tsunoda.getTeam().add(alphaTauri);
-//        alonso.getTeam().add(alpine);
+
+        giovinazzi.setTeam(alfaRomeo);
+        tsunoda.setTeam(alphaTauri);
+        alonso.setTeam(alpine);
 
         TeamPrincipal vasseur = new TeamPrincipal("Frederic", "Vasseur", 53, "French", dateTime);
         TeamPrincipal tost = new TeamPrincipal("Franz","Tost",65,"Austrian",dateTime);
         TeamPrincipal budkowski = new TeamPrincipal("Marcin","Budkowski",44,"Polish",dateTime);
-//
-//        vasseur.getTeam().add(alfaRomeo);
-//        tost.getTeam().add(alphaTauri);
-//        budkowski.getTeam().add(alpine);
+
+        vasseur.setTeam(alfaRomeo);
+        tost.setTeam(alphaTauri);
+        budkowski.setTeam(alpine);
 
         Track sakhir = new Track("Bahrain International Circuit", 5412, 15, 2004, "Bahrain", dateTime);
         Track imola = new Track("Autodromo Internazionale Enzo e Dino Ferrari", 4909, 19, 1953, "Italy", dateTime);
