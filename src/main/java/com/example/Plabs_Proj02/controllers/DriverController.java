@@ -7,7 +7,6 @@ import com.example.Plabs_Proj02.entities.Driver;
 import com.example.Plabs_Proj02.services.DriverService;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

@@ -1,6 +1,5 @@
 package com.example.Plabs_Proj02.entities;
 
-import com.example.Plabs_Proj02.entities.Result;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.joda.time.DateTime;

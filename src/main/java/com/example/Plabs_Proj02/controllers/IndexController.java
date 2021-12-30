@@ -1,19 +1,30 @@
 package com.example.Plabs_Proj02.controllers;
 
 import com.example.Plabs_Proj02.entities.*;
+import com.example.Plabs_Proj02.services.*;
 import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.awt.*;
-import java.util.UUID;
-
 @Controller
 @RequestMapping(path = "/")
 public class IndexController {
+
+    @Autowired
+    private TrackService trackService;
+    @Autowired
+    private TeamPrincipalService teamPrincipalService;
+    @Autowired
+    private TeamService teamService;
+    @Autowired
+    private ResultService resultService;
+    @Autowired
+    private DriverService driverService;
+
     @GetMapping(value = "")
     String index(){
         return "Working paths: \n/driver \n/driver/add \n/driver/all \n/driver/delete/{integer} \n" +
@@ -65,12 +76,32 @@ public class IndexController {
         Result r2 = new Result("28/03/2021",9,dateTime);
         Result r3 = new Result("28/03/2021",19,dateTime);
 
-//        r1.getResultDriver().add(giovinazzi);
-//        r1.getResultTrack().add(sakhir);
-//        r2.getResultDriver().add(tsunoda);
-//        r2.getResultTrack().add(sakhir);
-//        r3.getResultDriver().add(alonso);
-//        r3.getResultTrack().add(sakhir);
+        r1.setResultDriver(giovinazzi);
+        r1.setResultTrack(sakhir);
+        r2.setResultDriver(tsunoda);
+        r2.setResultTrack(sakhir);
+        r3.setResultDriver(alonso);
+        r3.setResultTrack(sakhir);
+
+        trackService.saveTrack(sakhir);
+        trackService.saveTrack(imola);
+        trackService.saveTrack(algarve);
+
+        teamService.saveTeam(alfaRomeo);
+        teamService.saveTeam(alphaTauri);
+        teamService.saveTeam(alpine);
+
+        driverService.saveDriver(giovinazzi);
+        driverService.saveDriver(tsunoda);
+        driverService.saveDriver(alonso);
+
+        teamPrincipalService.saveTeamPrincipal(vasseur);
+        teamPrincipalService.saveTeamPrincipal(tost);
+        teamPrincipalService.saveTeamPrincipal(budkowski);
+
+        resultService.saveResult(r1);
+        resultService.saveResult(r2);
+        resultService.saveResult(r3);
 
         return "Database generated.";
     }

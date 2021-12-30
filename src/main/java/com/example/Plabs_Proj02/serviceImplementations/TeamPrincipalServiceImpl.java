@@ -1,6 +1,5 @@
 package com.example.Plabs_Proj02.serviceImplementations;
 
-import com.example.Plabs_Proj02.entities.Team;
 import com.example.Plabs_Proj02.repositories.TeamPrincipalRepository;
 import com.example.Plabs_Proj02.services.TeamPrincipalService;
 import com.example.Plabs_Proj02.entities.TeamPrincipal;

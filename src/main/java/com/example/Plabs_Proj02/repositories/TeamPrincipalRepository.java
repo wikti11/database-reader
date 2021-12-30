@@ -1,8 +1,6 @@
 package com.example.Plabs_Proj02.repositories;
 
 import com.example.Plabs_Proj02.entities.TeamPrincipal;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
