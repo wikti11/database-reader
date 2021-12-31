@@ -19,10 +19,10 @@ public class Track {
     @Column(name="id")
     private Integer trackId;
 
-    @Column(name = "name",nullable = false,unique = true)
+    @Column(name = "track_name",nullable = false,unique = true)
     private String trackName;
 
-    @Column(name = "length",nullable = false)
+    @Column(name = "track_length",nullable = false)
     private Integer trackLength;
 
     @Column(name = "amount_of_corners",nullable = false)

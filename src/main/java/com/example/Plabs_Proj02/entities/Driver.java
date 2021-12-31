@@ -29,7 +29,7 @@ public class Driver {
     private Integer driverNumber;
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "team",referencedColumnName = "name")
+    @JoinColumn(name = "team",referencedColumnName = "team_name")
     private Team driverTeam;
 
     @Column(name = "age")

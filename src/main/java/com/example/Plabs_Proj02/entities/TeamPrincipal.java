@@ -24,7 +24,7 @@ public class TeamPrincipal {
     private String teamPrincipalLastName;
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "team",referencedColumnName = "name")
+    @JoinColumn(name = "team",referencedColumnName = "team_name")
     private Team teamPrincipalTeam;
 
     @Column(name = "age")

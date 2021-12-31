@@ -17,18 +17,18 @@ public class Result {
     @Column(name="id")
     private Integer resultId;
 
-    @Column(name = "date", nullable = false)
+    @Column(name = "result_date", nullable = false)
     private String resultDate;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "name", nullable = false)
+    @JoinColumn(name = "track_name", nullable = false)
     private Track resultTrack;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "number", nullable = false)
     private Driver resultDriver;
 
-    @Column(name = "position")
+    @Column(name = "result_position")
     private Integer resultPosition;
 
     @Column(length = 1000)

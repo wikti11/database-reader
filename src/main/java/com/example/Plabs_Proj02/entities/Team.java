@@ -19,7 +19,7 @@ public class Team {
     @Column(name = "id")
     private Integer teamId;
 
-    @Column(name = "name",nullable = false,unique = true)
+    @Column(name = "team_name",nullable = false,unique = true)
     private String teamName;
 
     @Column(name = "engine_supplier")
@@ -38,7 +38,7 @@ public class Team {
     private TeamPrincipal teamPrincipal;
 
     @OneToMany
-    @JoinColumn(name = "name")
+    @JoinColumn(name = "team_name")
     Set<Driver> teamDriver = new HashSet<>();
 
     public Team(){}
