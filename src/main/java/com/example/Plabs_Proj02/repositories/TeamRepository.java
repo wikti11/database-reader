@@ -8,16 +8,16 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.Collection;
 
 public interface TeamRepository extends CrudRepository<Team, Integer>, PagingAndSortingRepository<Team, Integer> {
-    @Query("SELECT t.name FROM Team t")
+    @Query("SELECT t.teamName FROM Team t")
     Collection<Team> findAllTeamNames();
 
-    @Query("SELECT t FROM Team t WHERE t.year_found > 1990")
+    @Query("SELECT t FROM Team t WHERE t.teamYearFound > 1990")
     Collection<Team> findTeamsFoundAfter1990();
 
-    @Query("SELECT t FROM Team t WHERE t.engine_supplier = ?1")
+    @Query("SELECT t FROM Team t WHERE t.teamEngineSupplier = ?1")
     Team findTeamsByEngineSupplier(String engine_supplier);
 
-    @Query("SELECT t FROM Team t WHERE t.localization = ?1 and t.engine_supplier = ?2")
+    @Query("SELECT t FROM Team t WHERE t.teamLocalization = ?1 and t.teamEngineSupplier = ?2")
     Team findTeamsByLocalizationAndEngineSupplier(String localization, String engine_supplier);
 
 }

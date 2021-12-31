@@ -8,15 +8,15 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.Collection;
 
 public interface TrackRepository extends CrudRepository<Track, Integer>, PagingAndSortingRepository<Track, Integer> {
-    @Query("SELECT t.name FROM Track t")
+    @Query("SELECT t.trackName FROM Track t")
     Collection<Track> findAllTrackNames();
 
-    @Query("SELECT t FROM Track t WHERE t.length > 4000")
+    @Query("SELECT t FROM Track t WHERE t.trackLength > 4000")
     Collection<Track> findTracksAbove4000();
 
-    @Query("SELECT t FROM Track t WHERE t.year_built = ?1")
+    @Query("SELECT t FROM Track t WHERE t.trackYearBuilt = ?1")
     Track findTracksByYearBuilt(Integer year_built);
 
-    @Query("SELECT t FROM Track t WHERE t.country = ?1 and t.corners = ?2")
+    @Query("SELECT t FROM Track t WHERE t.trackCountry = ?1 and t.trackCorners = ?2")
     Track findTrackByCountryAndCorners(String country, Integer corners);
 }
