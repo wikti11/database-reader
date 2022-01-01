@@ -8,6 +8,7 @@ import com.example.Plabs_Proj02.services.TeamPrincipalService;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +41,7 @@ public class TeamPrincipalController {
         return "Team principal has been successfully saved.";
     }
 
-    @GetMapping(value = "/all")
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody Iterable<TeamPrincipal> getAllTeamPrincipals(){
         return teamPrincipalRepository.findAll();
     }
@@ -61,27 +62,27 @@ public class TeamPrincipalController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-   @GetMapping(value = "/paginated/{pageNr}")
+   @GetMapping(value = "/paginated/{pageNr}", produces = MediaType.APPLICATION_JSON_VALUE)
    public Iterable<TeamPrincipal> findAllTeamPrincipalsWithPagination(@PathVariable Integer pageNr, Integer amountOnPage){
         return teamPrincipalService.findAllTeamPrincipalsWithPagination(pageNr, 5);
    }
 
-   @GetMapping(value = "/lastname")
+   @GetMapping(value = "/lastname", produces = MediaType.APPLICATION_JSON_VALUE)
    public Collection<TeamPrincipal> findAllTeamPrincipalLastNames(){
         return teamPrincipalService.findAllTeamPrincipalLastNames();
    }
 
-   @GetMapping(value = "/age/above45")
+   @GetMapping(value = "/age/above45", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<TeamPrincipal> findAllTeamPrincipalsAbove45(){
         return teamPrincipalService.findAllTeamPrincipalsAbove45();
    }
 
-   @GetMapping(value = "/firstname/{firstName}")
+   @GetMapping(value = "/firstname/{firstName}", produces = MediaType.APPLICATION_JSON_VALUE)
     public TeamPrincipal findTeamPrincipalByFirstName(@PathVariable String firstName){
         return teamPrincipalService.findTeamPrincipalsByFirstName(firstName);
    }
 
-   @GetMapping(value = "/age/nationality/{age}/{nationality}")
+   @GetMapping(value = "/age/nationality/{age}/{nationality}", produces = MediaType.APPLICATION_JSON_VALUE)
    public TeamPrincipal findTeamPrincipalsByAgeAndNationality(@PathVariable Integer age, @PathVariable String nationality){
         return teamPrincipalService.findTeamPrincipalsByAgeAndNationality(age, nationality);
    }

@@ -1,7 +1,7 @@
 INSERT INTO Track (id, track_name, track_length, amount_of_corners, year_built, country) VALUES
 (1, 'Bahrain International Circuit', 5412, 15, 2004, 'Bahrain'),
 (2, 'Autodromo Internazionale Enzo e Dino Ferrari', 4909, 19, 1953, 'Italy'),
-(3, 'Autodromo Inernacional do Algarve', 4653, 15, 2008, 'Portugal'),
+(3, 'Autodromo Internacional do Algarve', 4653, 15, 2008, 'Portugal'),
 (4, 'Circuit de Barcelona-Catalunya', 4675, 16, 1991, 'Spain'),
 (5, 'Circuit de Monaco', 3337, 19, 1929, 'Monaco'),
 (6, 'Baku City Circuit', 6003, 20, 2016, 'Azerbaijan'),
@@ -35,7 +35,7 @@ INSERT INTO Team (id, team_name, engine_supplier, localization, year_found) VALU
 
 INSERT INTO Team_principal (id, first_name, last_name, team, age, nationality) VALUES
 (1, 'Frederic', 'Vasseur', 'Alfa Romeo Racing Orlen', 53, 'French'),
-(2, 'Franz', 'Tost', 'Scuderia AlphaTauri', 65, 'Austrian'),
+(2, 'Franz', 'Tost', 'Scuderia AlphaTauri Honda', 65, 'Austrian'),
 (3, 'Marcin', 'Budkowski', 'Alpine F1 Team', 44, 'Polish'),
 (4, 'Otmar', 'Szafnauer', 'Aston Martin Cognizant F1 Team', 57, 'Romanian-American'),
 (5, 'Mattia', 'Binotto', 'Scuderia Ferrari Mission Winnow', 52, 'Italian'),
@@ -49,8 +49,8 @@ INSERT INTO Driver (id, first_name, last_name, number, team, age, nationality) V
 (1, 'Kimi', 'Raikkonen', 7, 'Alfa Romeo Racing Orlen', 42, 'Finnish'),
 (2, 'Antonio', 'Giovinazzi', 99, 'Alfa Romeo Racing Orlen', 28, 'Italian'),
 (3, 'Robert', 'Kubica', 88, 'Alfa Romeo Racing Orlen', 37, 'Polish'),
-(4, 'Pierre', 'Gasly', 10, 'Scuderia AlphaTauri', 25, 'French'),
-(5, 'Yuki', 'Tsunoda', 22, 'Scuderia AlphaTauri', 21, 'Japanese'),
+(4, 'Pierre', 'Gasly', 10, 'Scuderia AlphaTauri Honda', 25, 'French'),
+(5, 'Yuki', 'Tsunoda', 22, 'Scuderia AlphaTauri Honda', 21, 'Japanese'),
 (6, 'Fernando', 'Alonso', 14, 'Alpine F1 Team', 40, 'Spanish'),
 (7, 'Esteban', 'Ocon', 31, 'Alpine F1 Team', 25, 'French'),
 (8, 'Sebastian', 'Vettel', 5, 'Aston Martin Cognizant F1 Team', 34, 'German'),

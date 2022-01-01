@@ -7,6 +7,7 @@ import com.example.Plabs_Proj02.services.TeamService;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +39,7 @@ public class TeamController {
         return "Team has been successfully saved.";
     }
 
-    @GetMapping(value = "/all")
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody Iterable<Team> getAllTeams(){
         return teamRepository.findAll();
     }
@@ -59,27 +60,27 @@ public class TeamController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @GetMapping(value = "/paginated/{pageNr}")
+    @GetMapping(value = "/paginated/{pageNr}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Team> findAllTeamsWithPagination(@PathVariable Integer pageNr, Integer amountOnPage){
         return teamService.findAllTeamsWithPagination(pageNr, 5);
     }
 
-    @GetMapping(value = "/name")
+    @GetMapping(value = "/name", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Team> findAllTeamNames() {
         return teamService.findAllTeamNames();
     }
 
-    @GetMapping(value = "/yearfound/after1990")
+    @GetMapping(value = "/yearfound/after1990", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Team> findAllTeamsFoundAfter1990(){
         return teamService.findAllTeamsFoundAfter1990();
     }
 
-    @GetMapping(value = "/enginesupplier/{engineSupplier}")
+    @GetMapping(value = "/enginesupplier/{engineSupplier}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Team findTeamsByEngineSupplier(@PathVariable String engineSupplier){
         return teamService.findTeamByEngineSupplier(engineSupplier);
     }
 
-    @GetMapping(value = "/localization/enginesupplier/{localization}/{engineSupplier}")
+    @GetMapping(value = "/localization/enginesupplier/{localization}/{engineSupplier}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Team findTeamsByLocalizationAndEngineSupplier(@PathVariable String localization, @PathVariable String engineSupplier){
         return teamService.findTeamByLocalizationAndEngineSupplier(localization, engineSupplier);
     }

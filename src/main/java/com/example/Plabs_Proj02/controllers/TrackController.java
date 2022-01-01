@@ -7,6 +7,7 @@ import com.example.Plabs_Proj02.services.TrackService;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +40,7 @@ public class TrackController {
         return "Track has been saved successfully.";
     }
 
-    @GetMapping(value = "/all")
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody Iterable<Track> getAllTracks(){
         return trackRepository.findAll();
     }
@@ -60,27 +61,27 @@ public class TrackController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @GetMapping(value = "/paginated/{pageNr}")
+    @GetMapping(value = "/paginated/{pageNr}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Track> findAllTracksWithPagination(@PathVariable Integer pageNr, Integer amountOnPage){
         return trackService.findAllTracksWithPagination(pageNr, 5);
     }
 
-    @GetMapping(value = "/name")
+    @GetMapping(value = "/name", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Track> findAllTrackNames(){
         return trackService.findAllTrackNames();
     }
 
-    @GetMapping(value = "/length/above4000")
+    @GetMapping(value = "/length/above4000", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Track> findAllTracksAbove4000(){
         return trackService.findAllTracksAbove4000();
     }
 
-    @GetMapping(value = "/yearbuilt/{yearBuilt}")
+    @GetMapping(value = "/yearbuilt/{yearBuilt}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Track findTracksByYearBuilt(@PathVariable Integer yearBuilt){
         return trackService.findTracksByYearBuilt(yearBuilt);
     }
 
-    @GetMapping(value = "/country/corners/{country}/{corners}")
+    @GetMapping(value = "/country/corners/{country}/{corners}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Track findTracksByCountryAndCorners(@PathVariable String country, @PathVariable Integer corners){
         return trackService.findTracksByCountryAndCorners(country, corners);
     }

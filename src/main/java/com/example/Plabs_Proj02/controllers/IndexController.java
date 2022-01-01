@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value = "/home")
+@RequestMapping(value = "/")
 public class IndexController {
 
     @Autowired
@@ -25,8 +25,8 @@ public class IndexController {
     @Autowired
     private DriverService driverService;
 
-    @GetMapping(value = "")
-    String index(){
+    @GetMapping(value = "", produces = MediaType.TEXT_PLAIN_VALUE)
+    String index() {
         return "Working paths: \n/home \n/home/generateModel \n/driver \n/driver/add \n/driver/all \n/driver/delete/{integer} \n" +
                 "/driver/edit \n/driver/paginated/{integer} \n/driver/lastname \n/driver/age/above30 \n" +
                 "/driver/number/{integer} \n/driver/name/nationality/{string}/{string}\n\n" +
@@ -42,10 +42,5 @@ public class IndexController {
                 "/track \n/track/add \n/track/all \n/track/delete/{integer} \n/track/edit \n" +
                 "/track/paginated/{integer} \n/track/name \n/track/length/above4000 \n" +
                 "/track/yearbuilt/{integer} \n/track/country/corners/{string}/{integer}";
-    }
-
-    @PostMapping(value = "generateModel", produces = MediaType.TEXT_PLAIN_VALUE)
-    public String generateModel(){
-        return "Database generated.";
     }
 }

@@ -9,6 +9,7 @@ import com.example.Plabs_Proj02.services.ResultService;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +41,7 @@ public class ResultController {
         return "Result has been successfully saved.";
     }
 
-    @GetMapping(value = "/all")
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody Iterable<Result> getAllResults(){
         return resultRepository.findAll();
     }
@@ -61,27 +62,27 @@ public class ResultController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @GetMapping(value = "/paginated/{pageNr}")
+    @GetMapping(value = "/paginated/{pageNr}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Result> findAllResultsWithPagination(@PathVariable Integer pageNr, Integer amountOnPage){
         return resultService.findAllResultsWithPagination(pageNr, 5);
     }
 
-    @GetMapping(value = "/date")
+    @GetMapping(value = "/date", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Result> findAllResultDates(){
         return resultService.findAllResultDates();
     }
 
-    @GetMapping(value = "/position/above10")
+    @GetMapping(value = "/position/above10", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Result> findAllResultsPositionAbove10(){
         return resultService.findResultsPositionAbove10();
     }
 
-    @GetMapping(value = "/position/{position}")
+    @GetMapping(value = "/position/{position}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Result findAllResultsByPosition(@PathVariable Integer position){
         return resultService.findResultsByPosition(position);
     }
 
-    @GetMapping(value = "/date/position/{date}/{position}")
+    @GetMapping(value = "/date/position/{date}/{position}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Result findAllResultsByDateAndPosition(@PathVariable String date, @PathVariable Integer position){
         return resultService.findResultsByDateAndPosition(date,position);
     }
