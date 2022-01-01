@@ -25,7 +25,7 @@ public class PlabsProj02Application extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public Docket productApi(){
+	public Docket api(){
 		return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage("com.example.Plabs_Proj02.controllers")).build();
 	}
 
