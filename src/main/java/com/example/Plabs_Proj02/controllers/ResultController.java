@@ -30,7 +30,8 @@ public class ResultController {
     private ResultService resultService;
 
     @PostMapping(value = "/add")
-    public @ResponseBody String addNewResult (@RequestParam String resultDate, Track resultTrack, Driver resultDriver, Integer resultPosition) {
+    public @ResponseBody String addNewResult (@RequestParam String resultDate, @RequestParam Track resultTrack
+            , @RequestParam Driver resultDriver, @RequestParam Integer resultPosition) {
         Result r = new Result();
         r.setResultDate(resultDate);
         r.setResultTrack(resultTrack);

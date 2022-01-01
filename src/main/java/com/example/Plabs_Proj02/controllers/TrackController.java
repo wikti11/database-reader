@@ -28,7 +28,8 @@ public class TrackController {
     private TrackService trackService;
 
     @PostMapping(value = "/add")
-    public @ResponseBody String addNewTrack (@RequestParam String trackName, Integer trackLength, Integer trackCorners, Integer trackYearBuilt, String trackCountry){
+    public @ResponseBody String addNewTrack (@RequestParam String trackName, @RequestParam Integer trackLength
+            , @RequestParam Integer trackCorners, @RequestParam Integer trackYearBuilt, @RequestParam String trackCountry){
         Track t = new Track();
         t.setTrackName(trackName);
         t.setTrackLength(trackLength);

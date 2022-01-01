@@ -28,7 +28,8 @@ public class TeamController {
     private TeamService teamService;
 
     @PostMapping(value = "/add")
-    public @ResponseBody String addNewTeam (@RequestParam String teamName, String teamEngineSupplier, String teamLocalization, Integer teamYearFound){
+    public @ResponseBody String addNewTeam (@RequestParam String teamName, @RequestParam String teamEngineSupplier
+            , @RequestParam String teamLocalization, @RequestParam Integer teamYearFound){
         Team t = new Team();
         t.setTeamName(teamName);
         t.setTeamEngineSupplier(teamEngineSupplier);

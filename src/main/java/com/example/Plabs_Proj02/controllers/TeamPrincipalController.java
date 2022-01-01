@@ -29,7 +29,9 @@ public class TeamPrincipalController {
     private TeamPrincipalService teamPrincipalService;
 
     @PostMapping(value = "/add")
-    public @ResponseBody String addNewTeamPrincipal (@RequestParam String teamPrincipalFirstName, String teamPrincipalLastName, Team teamPrincipalTeam, Integer teamPrincipalAge, String teamPrincipalNationality){
+    public @ResponseBody String addNewTeamPrincipal (@RequestParam String teamPrincipalFirstName
+            , @RequestParam String teamPrincipalLastName, @RequestParam Team teamPrincipalTeam
+            , @RequestParam Integer teamPrincipalAge, @RequestParam String teamPrincipalNationality){
         TeamPrincipal t = new TeamPrincipal();
         t.setTeamPrincipalFirstName(teamPrincipalFirstName);
         t.setTeamPrincipalLastName(teamPrincipalLastName);
