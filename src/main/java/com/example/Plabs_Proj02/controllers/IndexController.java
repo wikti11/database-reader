@@ -13,21 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/")
 public class IndexController {
-
-    @Autowired
-    private TrackService trackService;
-    @Autowired
-    private TeamPrincipalService teamPrincipalService;
-    @Autowired
-    private TeamService teamService;
-    @Autowired
-    private ResultService resultService;
-    @Autowired
-    private DriverService driverService;
-
     @GetMapping(value = "", produces = MediaType.TEXT_PLAIN_VALUE)
     String index() {
-        return "Working paths: \n/home \n/home/generateModel \n/driver \n/driver/add \n/driver/all \n/driver/delete/{integer} \n" +
+        return "Working paths: \n/driver \n/driver/add \n/driver/all \n/driver/delete/{integer} \n" +
                 "/driver/edit \n/driver/paginated/{integer} \n/driver/lastname \n/driver/age/above30 \n" +
                 "/driver/number/{integer} \n/driver/name/nationality/{string}/{string}\n\n" +
                 "/result \n/result/add \n/result/all \n/result/delete/{integer} \n /result/edit \n" +
